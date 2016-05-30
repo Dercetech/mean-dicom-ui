@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" ng-app="dicomUI">
+    <head>
+        <meta charset="utf-8">
+        <title>DICOM uploader</title>
+
+        <!-- jQuery -->
+        <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <link href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        
+        
+        <!-- UI painting libraries -->
+        <script type="text/javascript" src="lib/jsdicom/glpainter.js"></script>
+        <script type="text/javascript" src="lib/jsdicom/shaders.js"></script>
+        <script type="text/javascript" src="lib/jsdicom/canvaspainter.js"></script>
+        
+        <script type="text/javascript" src="lib/jsdicom/GLU.js"></script>
+        <script type="text/javascript" src="lib/jsdicom/cluts.js"></script>
+        <script type="text/javascript" src="lib/jsdicom/app.js"></script>
+        <script type="text/javascript" src="lib/jsdicom/tools.js"></script>
+        <script type="text/javascript" src="lib/jsdicom/utilities.js"></script>
+        <script type="text/javascript" src="lib/jsdicom/dcmseries.js"></script>
+        <script type="text/javascript" src="lib/jsdicom/presentation.js"></script>
+      
+        <!-- JS-DICOM library -->
+        <script type="text/javascript" src="lib/jsdicom-lib/dcmdict.js"></script>
+        <script type="text/javascript" src="lib/jsdicom-lib/binutils.js"></script>
+        <script type="text/javascript" src="lib/jsdicom-lib/dcmfile.js"></script>
+        <script type="text/javascript" src="lib/jsdicom-lib/dicomparser.js"></script>
+        <script type="text/javascript" src="lib/jsdicom-lib/transfersyntax.js"></script>
+        <script type="text/javascript" src="lib/jsdicom-lib/qr.js"></script>
+
+
+        <!-- Angular library -->
+        <script src="lib/bower_components/angular/angular.js"></script>
+
+        <!-- DICOM upload app -->
+        <script src="components/main.js"></script>
+        <link rel="stylesheet/less" type="text/css" href="styles.less">
+        
+            <!-- Module: ui-app -->
+            <script src="components/ui-app/module.js"></script>
+            
+            <!-- Module: proof-of-concept -->
+            <script src="components/ui-poc/module.js"></script>
+            
+            <!-- Uploader -->
+            <script src="components/ui-poc/uploader/uploader-controller.js"></script>
+            
+            <!-- Module: ui-commons -->
+            <script src="components/ui-app/module.js"></script>
+
+
+        <!-- Less -->
+        <script type="text/javascript" src="lib/less/2.5.1/less.min.js"></script>
+
+
+    </head>
+
+    <body><div class="container top">
+
+        <div class="panel panel-default">
+
+            <div class="panel-body">
+    
+                <div class="row" ng-controller="UploaderController as uploadCtrl">
+                    
+                
+                            
+                            <div class="col-md-4">
+                
+                                <!-- file selection -->
+                                <p>Select some files</p>
+                                <form name="selectfile">
+                                    <label for="file">File</label>
+                                    <input type="file" name="file" id="file" multiple="multiple"/>
+                                </form>
+                
+                            </div>
+                            
+                            <div class="cold-md-8">
+                
+                                <!-- rendering area -->
+                                <div id="view-area"></div>
+                                
+                                <div class="btn-group" role="group" aria-label="...">
+                  <button type="button" class="btn btn-default">Left</button>
+                  <button type="button" class="btn btn-default">Middle</button>
+                  <button type="button" class="btn btn-default">Right</button>
+                </div>
+                                
+                            </div>
+                
+                        </div>
+    
+            </div>
+        </div>
+        
+    </div></body>
+</html>
