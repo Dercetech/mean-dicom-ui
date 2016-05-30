@@ -1,0 +1,24 @@
+{
+  "name": "mean-dicom-ui",
+  "version": "1.0.0",
+  "description": "Angular UI to handle DICOM upload",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dercetech/mean-dicom-ui.git"
+  },
+  "keywords": [
+    "MEAN",
+    "DICOM",
+    "Angular"
+  ],
+  "author": "Jérémie Mercier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dercetech/mean-dicom-ui/issues"
+  },
+  "homepage": "https://github.com/Dercetech/mean-dicom-ui#readme"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "mean-dicom-ui",
+  "description": "Angular UI to handle DICOM upload",
+  "main": "index.js",
+  "authors": [
+    "Jérémie Mercier"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "MEAN",
+    "DICOM",
+    "Angular"
+  ],
+  "homepage": "https://github.com/Dercetech/mean-dicom-ui",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./public/lib/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "bootstrap": "^3.3.6"
+  }
+}
