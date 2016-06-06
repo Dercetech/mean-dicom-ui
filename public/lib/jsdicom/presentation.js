@@ -12,6 +12,9 @@
 // Maybe use some cool js-templating, like mustasche?
 
 function fill_series_selection(series, selected_uid, painter_factory) {
+    
+    return;
+    
     var series_list = $("#series-selection");
     series_list.empty();
     var size = 128;

@@ -7,9 +7,14 @@ var app = angular.module('dicomUI', [
 
     // Dependencies
 
-        // POC
-        "dicomUI.poc"
+        // Angular UI-bootstrap
+        "ui.bootstrap",
 
+        // POC
+        "dicomUI.poc",
+        
+        // Commons
+        "dicomUI.commons"
     ]);
 
 

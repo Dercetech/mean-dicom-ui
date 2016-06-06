@@ -3,4 +3,4 @@
 'use strict';
 
 // Module declaration
-var app = angular.module('dicomUI.commons', [/* no dependencies to inject */]);
+angular.module('dicomUI.commons', []);

@@ -13,6 +13,8 @@
         
         
         <!-- UI painting libraries -->
+        <!-- not in use for now -->
+        <script type="text/javascript" src="lib/jsdicom/glMatrix-0.9.5.min.js"></script>
         <script type="text/javascript" src="lib/jsdicom/glpainter.js"></script>
         <script type="text/javascript" src="lib/jsdicom/shaders.js"></script>
         <script type="text/javascript" src="lib/jsdicom/canvaspainter.js"></script>
@@ -24,7 +26,10 @@
         <script type="text/javascript" src="lib/jsdicom/utilities.js"></script>
         <script type="text/javascript" src="lib/jsdicom/dcmseries.js"></script>
         <script type="text/javascript" src="lib/jsdicom/presentation.js"></script>
-      
+        
+        <!-- DICOM parser -->
+        <script type="text/javascript" src="lib/bower_components/dicomParser/dist/dicomParser.js"></script>
+        
         <!-- JS-DICOM library -->
         <script type="text/javascript" src="lib/jsdicom-lib/dcmdict.js"></script>
         <script type="text/javascript" src="lib/jsdicom-lib/binutils.js"></script>
@@ -36,9 +41,13 @@
 
         <!-- Angular library -->
         <script src="lib/bower_components/angular/angular.js"></script>
+        
+        <!-- UI Bootstrap -->
+        <script src="lib/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
         <!-- DICOM upload app -->
         <script src="components/main.js"></script>
+        <script src="components/config.js"></script>
         <link rel="stylesheet/less" type="text/css" href="styles.less">
         
             <!-- Module: ui-app -->
@@ -47,11 +56,22 @@
             <!-- Module: proof-of-concept -->
             <script src="components/ui-poc/module.js"></script>
             
-            <!-- Uploader -->
-            <script src="components/ui-poc/uploader/uploader-controller.js"></script>
+                <!-- Uploader -->
+                <script src="components/ui-poc/uploader/uploader-controller.js"></script>
+                <script src="components/ui-poc/uploader/uploader-service.js"></script>
+                
+                <!-- Dictionaries -->
+                <!--script src="components/ui-poc/dicom/dictionary/data-dictionary.js"></script-->
+                <!--script src="components/ui-poc/dicom/dictionary/uids.js"></script-->
+                
+                <!-- TODO Angular-ize this jQuery utility -->
+                <script src="components/ui-poc/dicom/dictionary/display-meta.js"></script>
             
             <!-- Module: ui-commons -->
-            <script src="components/ui-app/module.js"></script>
+            <script src="components/ui-commons/module.js"></script>
+
+                <!-- Fileread -->
+                <script src="components/ui-commons/file-input/on-change.js"></script>
 
 
         <!-- Less -->
@@ -60,44 +80,6 @@
 
     </head>
 
-    <body><div class="container top">
-
-        <div class="panel panel-default">
-
-            <div class="panel-body">
-    
-                <div class="row" ng-controller="UploaderController as uploadCtrl">
-                    
-                
-                            
-                            <div class="col-md-4">
-                
-                                <!-- file selection -->
-                                <p>Select some files</p>
-                                <form name="selectfile">
-                                    <label for="file">File</label>
-                                    <input type="file" name="file" id="file" multiple="multiple"/>
-                                </form>
-                
-                            </div>
-                            
-                            <div class="cold-md-8">
-                
-                                <!-- rendering area -->
-                                <div id="view-area"></div>
-                                
-                                <div class="btn-group" role="group" aria-label="...">
-                  <button type="button" class="btn btn-default">Left</button>
-                  <button type="button" class="btn btn-default">Middle</button>
-                  <button type="button" class="btn btn-default">Right</button>
-                </div>
-                                
-                            </div>
-                
-                        </div>
-    
-            </div>
-        </div>
-        
-    </div></body>
+    <body ng-include src="'components/ui-poc/uploader/html/uploader.html'">
+    </body>
 </html>

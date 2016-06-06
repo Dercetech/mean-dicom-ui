@@ -56,6 +56,7 @@ DcmApp.prototype.load_files = function(files)
     for(var i=0;i<files.length;++i) {
         this.load_file(files[i], i, files.length);
     }
+    /*
     $("#slider").slider({
         value: 0,
         max: files.length-1,
@@ -64,7 +65,7 @@ DcmApp.prototype.load_files = function(files)
             app.curr_tool.set_file(app.files[app.curr_file_idx]);
             app.draw_image();
         }
-    });
+    });*/
 }
 
 DcmApp.prototype.load_urllist_from_url = function(url)
@@ -262,9 +263,9 @@ DcmApp.prototype.draw_image = function() {
     var curr_file = this.files[this.curr_file_idx];
     if(curr_file == undefined)
         return;
-    $("#size_info").text(curr_file.Rows + "x" + curr_file.Columns);
-    $("#sliceidx_info").text(this.curr_file_idx+1 + "/" + this.files.length);
-    $("#slider").slider("option", "value", this.curr_file_idx);
+    //$("#size_info").text(curr_file.Rows + "x" + curr_file.Columns);
+    //$("#sliceidx_info").text(this.curr_file_idx+1 + "/" + this.files.length);
+    //$("#slider").slider("option", "value", this.curr_file_idx);
     var windowing = this.painter.get_windowing();
     $("#ww_info").text(windowing[1]);
     $("#wl_info").text(windowing[0]);
@@ -292,6 +293,9 @@ DcmApp.prototype.reset_levels = function() {
 }
 
 DcmApp.prototype.mousemoveinfo = function(canvas_pos, image_pos) {
+    
+    return;
+    
     if (this.files.length <= this.curr_file_idx) {
         $("#density_info").html("");
         return;
@@ -359,16 +363,24 @@ DcmApp.prototype._init_painter = function(painter) {
 }
 
 DcmApp.prototype.init = function() {
+    
     // Create canvas inside this.divid
     this.viewarea = document.getElementById(this.viewareaid);
+    
+    /* Original: Create canvas element
     this.canvas = document.createElement('canvas');
     this.canvas.id = 'maincanvas'; // TODO: Unique of use of prefix
     this.canvas.width = this.viewarea.clientWidth - 1;
     this.canvas.height = this.viewarea.clientHeight - 1;
     this.canvas.style.border = '1px solid #aaa';
     this.viewarea.appendChild(this.canvas);
-    // Create infobox
-    create_image_infobox(this.viewarea);
+    */
+    
+    // Obtain canvas element
+    this.canvas = document.getElementById(this.viewareaid + '-canvas');
+    
+    // Original: Create infobox
+    // create_image_infobox(this.viewarea);
 
     var painters = [
         function(cid) { return new GLPainter(cid); },
@@ -378,7 +390,7 @@ DcmApp.prototype.init = function() {
         var painter = painters[i](this.canvas.id);
         try {
             painter.set_cluts(this.curr_clut_r, this.curr_clut_g, this.curr_clut_b);
-            painter.clut_bar_enabled = true;
+            painter.clut_bar_enabled = false; //true;
             painter.init();
             this.painter = painter;
             break;
@@ -450,14 +462,20 @@ DcmApp.prototype.init = function() {
     this.canvas.addEventListener('DOMMouseScroll', scrollListener, false);
     this.canvas.addEventListener('mousewheel', wheelListener, false);
 
+    /* // Infobox
     document.getElementById("infobox").onmousemove = this.canvas.onmousemove;
     document.getElementById("infobox").onmousedown = this.canvas.onmousedown;
     document.getElementById("infobox").onmouseup = this.canvas.onmouseup;
     document.getElementById("infobox").onmouseout = this.canvas.onmouseout;
     document.getElementById("infobox").onclick = this.canvas.onclick;
     document.getElementById("infobox").addEventListener('DOMMouseScroll', scrollListener, false);
-
+    */
+    
     window.onresize = function(evt) {
+        
+        // Ignore for now
+        return;
+        
         // Update canvas dimension and redraw
         clearTimeout(timer_event);
         function resize_canvas() {
