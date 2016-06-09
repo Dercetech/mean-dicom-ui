@@ -7,7 +7,7 @@ var app = angular.module('dicomUI', [
 
     // Dependencies
 
-        // Angular UI-bootstrap
+        "ui.router",
         "ui.bootstrap",
 
         // POC
