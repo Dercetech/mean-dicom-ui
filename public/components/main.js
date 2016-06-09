@@ -2,24 +2,20 @@
 
 'use strict';
 
-// Define your app
 var app = angular.module('dicomUI', [
-
-    // Dependencies
 
         "ui.router",
         "ui.bootstrap",
 
-        // POC
-        "dicomUI.poc",
+        // Framework
+        "dicomUI.framework",
         
         // Commons
-        "dicomUI.commons"
+        "dicomUI.commons",
+        
+        // Application
+        "dicomUI.app"
     ]);
 
 
-// On app started
-app.run(['$rootScope', function($rootScope){
-    
-	console.log('DICOM UI uploader ready.');
-}]);
+app.run(['$rootScope', function($rootScope){ /* App starting */ }]);

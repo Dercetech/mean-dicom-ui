@@ -50,17 +50,39 @@
         <!-- DICOM upload app -->
         <script src="components/main.js"></script>
         <script src="components/config.js"></script>
+        <script src="components/states.js"></script>
+        
         <link rel="stylesheet/less" type="text/css" href="styles.less">
+
+            <!-- Module: ui-framework -->
+            <script src="components/ui-framework/module.js"></script>
+
+
+            <!-- Module: ui-commons -->
+            <script src="components/ui-commons/module.js"></script>
+
+                <!-- Fileread -->
+                <script src="components/ui-commons/file-input/on-change.js"></script>
+                
         
             <!-- Module: ui-app -->
             <script src="components/ui-app/module.js"></script>
+            
+                <!-- Menu -->
+                <script src="components/ui-app/menu/scripts/menu-controller.js"></script>
+            
+                <!-- Login -->
+                <script src="components/ui-app/login/scripts/login-controller.js"></script>
+            
+                <!-- Uploader -->
+                <script src="components/ui-app/uploader/scripts/uploader-controller.js"></script>
             
             <!-- Module: proof-of-concept -->
             <script src="components/ui-poc/module.js"></script>
             
                 <!-- Uploader -->
-                <script src="components/ui-poc/uploader/uploader-controller.js"></script>
-                <script src="components/ui-poc/uploader/uploader-service.js"></script>
+                <!--script src="components/ui-poc/uploader/uploader-controller.js"></script>
+                <!--script src="components/ui-poc/uploader/uploader-service.js"></script>
                 
                 <!-- Dictionaries -->
                 <!--script src="components/ui-poc/dicom/dictionary/data-dictionary.js"></script-->
@@ -68,20 +90,15 @@
                 
                 <!-- TODO Angular-ize this jQuery utility -->
                 <script src="components/ui-poc/dicom/dictionary/display-meta.js"></script>
-            
-            <!-- Module: ui-commons -->
-            <script src="components/ui-commons/module.js"></script>
-
-                <!-- Fileread -->
-                <script src="components/ui-commons/file-input/on-change.js"></script>
 
 
         <!-- Less -->
         <script type="text/javascript" src="lib/less/2.5.1/less.min.js"></script>
 
-
     </head>
 
-    <body ng-include src="'components/ui-poc/uploader/html/uploader.html'">
+    <body>
+        <div id="app-menu" ui-view="menu"></div>
+        <div id="app-body" ui-view></div>
     </body>
 </html>
