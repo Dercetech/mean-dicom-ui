@@ -1,13 +1,70 @@
-@import (less) "components/ui-poc/uploader/styles/uploader.less";
+@import (less) "components/ui-app/uploader/styles/uploader.less";
 
 div.container{
     
     &.top{
         
         margin-top: 16px;
-        border-color: RED;
+    }
+}
+
+
+.area{
+    
+    display: block;
+    
+    margin-bottom: 16px;
+    border-radius: 4px;
+    padding: 16px;
+    
+    &.area-set{
+        
+        border: 1px solid #ccc;
     }
     
+    &.area-file-drop{
+        
+        border: 1px dashed #ccc;
+        
+        text-align: center;
+        
+        &.drag-over{
+            
+            border-color: #D6E9C6;
+            background-color: #DFF0D8;
+        }
+    }
+    
+    .area-scroll{
+        
+        max-height: 60vh;
+        overflow-y: scroll;
+    }
+    
+    .area-file{
+        
+        display: inline-block;
+        
+        margin-left: 16px;
+        margin-bottom: 16px;
+        padding: 16px;
+        width: 128px;
+        height: 128px;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        
+        .file-label{
+            
+            width: 100%;
+            word-wrap: break-word;
+            font-size: 0.75em;
+        }
+    }
+
+}
+
+.not-in-use{
+
     .panel-main{
     
         height: ~"calc(100vh - 40px)";

@@ -1,1 +1,74 @@
-this is the uploader
+<div ng-controller="UploaderController as ulCtrl">
+    <!--div class="panel-heading">Panel Heading</div-->
+    <div class="panel-body">
+        
+        <div drop-zone class="area area-file-drop" on-files-dropped="ulCtrl.importFiles">
+            dropshit here
+        </div>
+        
+        <div ng-repeat="set in ulCtrl.sets"
+                dicom-parser
+                class="area area-set">
+            
+            <div>
+            
+                <!-- Row1: set title & expand (DICOM only) -->
+                <div class="row">
+                    
+                    <!-- Set name -->
+                    <div class="col-md-4">
+                        <b>{{set.name}}</b>
+                    </div>
+                    
+                    <!-- Expand/collapse button -->
+                    <div class="col-md-1 col-md-offset-7">
+                        <a href="" ng-click="">chev</a>
+                    </div>
+                    
+                </div>
+                <!-- Row1 - END -->
+                
+                <!-- Row2: list of thumbs -->
+                <div class="row">
+                    
+                    <!-- preview -->
+                    <div class="col-md-6">
+                        
+                    </div>
+                    
+                    <!-- thumbnails -->
+                    <div class="col-md-6 area-scroll">
+                        <div ng-repeat="fileWrapper in ulCtrl.files | filter: {set: set.id}" class="area-file"
+                                ng-click="DicomParserCtrl.selectDicomFile(fileWrapper.file)">
+                            <div>
+                                <p>file:</p>
+                                <p class="file-label">{{fileWrapper.file.name}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Row2 - END -->
+                
+                <div class="row" ng-if="DicomParserCtrl.src">
+                    
+                    <div class="col-md-12">
+                        
+                        <hr/>
+                        
+                        <div>
+                            
+                            <h4><b>Détails</b> ({{DicomParserCtrl.src.name}})</h4>
+                            
+                            <!-- Custom display of actual dataset -->
+                            <div dicom-dataset-summary data-set=""></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- dicom parser -->
+            
+        </div>
+    </div>
+</div>

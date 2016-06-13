@@ -1,0 +1,98 @@
+<div class="panel panel-default ">
+    <div class="panel-heading">
+        <h3 class="panel-title">Informations du patient</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-6">
+                Nom: <span>{{getElement('x00100010')}}</span>
+            </div>
+            <div class="col-xs-6">
+                Identifiant: <span>{{getElement('x00100020')}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                Anniversaire: <span>{{getElement('x00100030')}}</span>
+            </div>
+            <div class="col-xs-6">
+                Sexe: <span>{{getElement('x00100040')}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default ">
+    <div class="panel-heading">
+        <h3 class="panel-title">Informations de l'étude</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-6">
+                Identifiant: <span>{{getElement('x00200010')}}</span>
+            </div>
+            <div class="col-xs-6">
+                Instance (UID): <span>{{getElement('x0020000d')}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                Description: <span>{{getElement('x00081030')}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default ">
+    <div class="panel-heading">
+        <h3 class="panel-title">Informations de la série</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-6">
+                Numéro: <span>{{getElement('x00200011')}}</span>
+            </div>
+            <div class="col-xs-6">
+                Instance (UID): <span>{{getElement('x0020000e')}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                Description: <span>{{getElement('x0008103e')}}</span>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<div class="panel panel-default ">
+    <div class="panel-heading">
+        <h3 class="panel-title">Informations de l'image</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-6">
+                Instance: <span>{{getElement('x00200013')}}</span>
+            </div>
+            <div class="col-xs-6">
+                Commentaire: <span>{{getElement('x00204000')}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                Date: <span>{{getElement('x00080022')}}</span>
+            </div>
+            <div class="col-xs-6">
+                Heure: <span>{{getElement('x00080032')}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                TR (repetition): <span>{{getElement('x00180080')}}</span>
+            </div>
+            <div class="col-xs-6">
+                TE (echo): <span>{{getElement('x00180081')}}</span>
+            </div>
+        </div>
+    </div>
+</div>

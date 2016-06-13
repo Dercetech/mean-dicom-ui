@@ -14,7 +14,7 @@
         
         <!-- UI painting libraries -->
         <!-- not in use for now -->
-        <script type="text/javascript" src="lib/jsdicom/glMatrix-0.9.5.min.js"></script>
+        <!--script type="text/javascript" src="lib/jsdicom/glMatrix-0.9.5.min.js"></script>
         <script type="text/javascript" src="lib/jsdicom/glpainter.js"></script>
         <script type="text/javascript" src="lib/jsdicom/shaders.js"></script>
         <script type="text/javascript" src="lib/jsdicom/canvaspainter.js"></script>
@@ -25,18 +25,18 @@
         <script type="text/javascript" src="lib/jsdicom/tools.js"></script>
         <script type="text/javascript" src="lib/jsdicom/utilities.js"></script>
         <script type="text/javascript" src="lib/jsdicom/dcmseries.js"></script>
-        <script type="text/javascript" src="lib/jsdicom/presentation.js"></script>
+        <script type="text/javascript" src="lib/jsdicom/presentation.js"></script-->
         
         <!-- DICOM parser -->
         <script type="text/javascript" src="lib/bower_components/dicomParser/dist/dicomParser.js"></script>
         
         <!-- JS-DICOM library -->
-        <script type="text/javascript" src="lib/jsdicom-lib/dcmdict.js"></script>
+        <!--script type="text/javascript" src="lib/jsdicom-lib/dcmdict.js"></script>
         <script type="text/javascript" src="lib/jsdicom-lib/binutils.js"></script>
         <script type="text/javascript" src="lib/jsdicom-lib/dcmfile.js"></script>
         <script type="text/javascript" src="lib/jsdicom-lib/dicomparser.js"></script>
         <script type="text/javascript" src="lib/jsdicom-lib/transfersyntax.js"></script>
-        <script type="text/javascript" src="lib/jsdicom-lib/qr.js"></script>
+        <script type="text/javascript" src="lib/jsdicom-lib/qr.js"></script-->
 
 
         <!-- Angular library -->
@@ -61,19 +61,33 @@
             <!-- Module: ui-commons -->
             <script src="components/ui-commons/module.js"></script>
 
+                <!-- DICOM -->
+                <script src="components/ui-commons/dicom/scripts/dicom-parser.js"></script>
+                <script src="components/ui-commons/dicom/scripts/dicom-parser-controller.js"></script>
+                <script src="components/ui-commons/dicom/scripts/dicom-parsing-service.js"></script>
+
+                <!-- Dropzone -->
+                <script src="components/ui-commons/drop-zone/scripts/drop-zone.js"></script>
+
+                <!-- File -->
+                <script src="components/ui-commons/files/scripts/file-service.js"></script>
+
                 <!-- Fileread -->
                 <script src="components/ui-commons/file-input/on-change.js"></script>
                 
         
             <!-- Module: ui-app -->
             <script src="components/ui-app/module.js"></script>
-            
-                <!-- Menu -->
-                <script src="components/ui-app/menu/scripts/menu-controller.js"></script>
-            
+
+                <!-- Dicom dataset display -->
+                <script src="components/ui-app/dicom-dataset/scripts/dicom-dataset-summary.js"></script>
+
                 <!-- Login -->
                 <script src="components/ui-app/login/scripts/login-controller.js"></script>
             
+                <!-- Menu -->
+                <script src="components/ui-app/menu/scripts/menu-controller.js"></script>
+
                 <!-- Uploader -->
                 <script src="components/ui-app/uploader/scripts/uploader-controller.js"></script>
             
@@ -98,7 +112,15 @@
     </head>
 
     <body>
+        
+        <!-- State view: menu -->
         <div id="app-menu" ui-view="menu"></div>
-        <div id="app-body" ui-view></div>
+        
+        <!-- State view: main -->
+        <div class="container top">
+            <div id="app-body" class="panel panel-default panel-main" ui-view></div>
+        </div>
+        <!-- State view: main - END -->
+        
     </body>
 </html>
